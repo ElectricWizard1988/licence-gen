@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>UK Licence Number Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/styles.css" />
+    <script src="scripts/main.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>UK Licence Number Generator</h1>
+            <form>
+                <label for="FirstName">First Name:</label>
+                <input type="text" id="FirstName" required autofocus> </br>
+                </br>
+                <label for="LastName">Last Name:</label>
+                <input type="text" id="LastName"> </br>
+                </br>
+                <label for="Date">Date of Birth:</label>
+                <input type="date" id="DatePicker" value=""> </br>
+                </br>
+                <button onclick="getUserInput()" type="button">Generate</button>
+                <button onclick="generateRandomDetails(), getUserInput()" type="button" class="random">Randomize</button>
+                <input readonly type="text" id="OutputField"></input>
+            </form>
+    </div>
+</body>
+
+</html>
