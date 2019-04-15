@@ -4,6 +4,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
+    background-color: #eeeeee;
 }
 
 h1 {
@@ -16,13 +17,20 @@ h1 {
     margin: auto;
     margin-top: 2%;
     padding: 1% 2% 1% 2%;
-    border: 4px solid black;
-    background-color: antiquewhite;
+    border: 2px solid black;
+    background: #ced2d4;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #e7e7e7, #ced2d4);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #e7e7e7, #ced2d4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    box-shadow: 2px 2px 12px 0px rgb(51, 51, 51);
+    border-radius: 4px;
 }
 
 .container input {
     width: 100%;
     clear: both;
+    outline: none;
+    border-radius: 4px; 
+    padding: 4px;
 }
 
 label {
@@ -30,12 +38,22 @@ label {
 }
 
 button {
-    float: left;
-    margin: 0px 0px 4px 0px;
+    font-weight: 600;
+    padding: 5px 10px;
     cursor: pointer;
+    background-color: #EAECEE;
+}
+
+button:hover {
+    background-color: #BFC8CF;
 }
 
 button.random {
     float: right;
     margin: 0px 0px 4px 6px;
+}
+
+.border {
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
