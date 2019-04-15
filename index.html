@@ -16,17 +16,17 @@
         <h1>UK Licence Number Generator</h1>
             <form>
                 <label for="FirstName">First Name:</label>
-                <input type="text" id="FirstName" required autofocus> </br>
+                <input type="text" id="FirstName" required autofocus class="border"> </br>
                 </br>
                 <label for="LastName">Last Name:</label>
-                <input type="text" id="LastName"> </br>
+                <input type="text" id="LastName" class="border"> </br>
                 </br>
                 <label for="Date">Date of Birth:</label>
-                <input type="date" id="DatePicker" value=""> </br>
+                <input type="date" id="DatePicker" value="" class="border"> </br>
                 </br>
-                <button onclick="getUserInput()" type="button">Generate</button>
-                <button onclick="generateRandomDetails(), getUserInput()" type="button" class="random">Randomize</button>
-                <input readonly type="text" id="OutputField"></input>
+                <button onclick="getUserInput()" type="button" class="border">Generate</button>
+                <button onclick="generateRandomDetails(), getUserInput()" type="button" class="random border">Randomize</button>
+                <input readonly type="text" id="OutputField" class="border"></input>
             </form>
     </div>
 </body>
