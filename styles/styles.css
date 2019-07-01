@@ -4,25 +4,24 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #eeeeee;
 }
 
 h1 {
     margin-top: 2px;
+    text-align: center;
 }
 
 .container {
     clear: both;
-    width: 450px;
+    width: 500px;
+    height: 320px;;
     margin: auto;
     margin-top: 2%;
     padding: 1% 2% 1% 2%;
-    border: 2px solid black;
-    background: #ced2d4;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #e7e7e7, #ced2d4);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #e7e7e7, #ced2d4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    box-shadow: 2px 2px 12px 0px rgb(51, 51, 51);
-    border-radius: 4px;
+    background: #e1e2e2;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #e7e7e7, #e1e2e2);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #e7e7e7, #e1e2e2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    box-shadow: 2px 2px 5px 0px rgb(51, 51, 51);
 }
 
 .container input {
@@ -55,5 +54,5 @@ button.random {
 
 .border {
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 4px;
 }
