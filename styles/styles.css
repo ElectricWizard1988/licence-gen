@@ -43,7 +43,7 @@ button {
     background-color: #EAECEE;
 }
 
-button:hover {
+button:active {
     background-color: #BFC8CF;
 }
 
