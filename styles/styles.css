@@ -14,7 +14,7 @@ h1 {
 .container {
     clear: both;
     width: 500px;
-    height: 320px;;
+    height: 400px;;
     margin: auto;
     margin-top: 2%;
     padding: 1% 2% 1% 2%;
@@ -24,7 +24,7 @@ h1 {
     box-shadow: 2px 2px 5px 0px rgb(51, 51, 51);
 }
 
-.container input {
+.container input, .container select {
     width: 100%;
     clear: both;
     outline: none;

@@ -2,6 +2,7 @@ function getUserInput() {
     let firstName = document.getElementById('FirstName').value;
     let lastName = document.getElementById('LastName').value;
     let dateOfBirth = document.getElementById('DatePicker').value;
+    let gender = document.getElementById('Gender').value;
 
     let first = lastName.slice(0, 5);
     if (first.length < 5) {
@@ -9,6 +10,9 @@ function getUserInput() {
     }
     let second = dateOfBirth.substr(2, 1);
     let third = dateOfBirth.substr(5, 2);
+    if (gender === 'f') {
+        third = parseInt(third, 10) + 50;
+    }
     let fourth = dateOfBirth.substr(8, 2);
     let fith = dateOfBirth.substr(3, 1);
     let sixth = firstName.substr(0, 2);
@@ -19,7 +23,7 @@ function getUserInput() {
     let generatedLicenceNumber = (first.toUpperCase() + second + third + fourth + fith + sixth.toUpperCase() +
         seventh + eighthChar1.toUpperCase() + eighthChar2.toUpperCase());
 
-    if (firstName.length === 0 || lastName.length === 0 || dateOfBirth === "") {
+    if (firstName.length === 0 || lastName.length === 0 || dateOfBirth === "" || gender === "") {
         alert("Please make sure that you have entered a First Name, Last Name and DOB.");
         generatedLicenceNumber = "";
     } else {
@@ -29,13 +33,66 @@ function getUserInput() {
 
 function generateRandomDetails() {
 
-    let firstNamesArray = ["Alexander", "Andrew", "Angela", "Benjamin", "Beth", "Carl", "Clarissa", "Callum", "Demitri", "Dianne", "Evan", "Eugine", "Frankie",
-        "Florence", "Gary", "Gloria", "Henry", "Henrietta", "Ian", "Isabelle", "Jamie", "Jasmine", "Karl", "Karen", "Luke", "Lisa", "Marcus",
-        "Maria", "Nigel", "Norma", "Oliver", "Olivia", "Peter", "Pauline", "Quentin", "Queenie", "Roger", "Rebecca", "Rowan", "Stephen", "Samantha", "Thomas",
-        "Toni", "Uriah", "Ursula", "Victor", "Victoria", "William", "Wendy", "Xander", "Xena", "Yannick", "Yvonne", "Zachary", "Zoe",
+    let firstNamesGendersArray = [
+        {name: 'Alexander', gender: 'm'},
+        {name: 'Andrew', gender: 'm'},
+        {name: 'Angela', gender: 'f'},
+        {name: 'Benjamin', gender: 'm'},
+        {name: 'Beth', gender: 'f'},
+        {name: 'Carl', gender: 'm'},
+        {name: 'Clarissa', gender: 'f'},
+        {name: 'Callum', gender: 'm'},
+        {name: 'Demitri', gender: 'm'},
+        {name: 'Dianne', gender: 'f'},
+        {name: 'Evan', gender: 'm'},
+        {name: 'Eugenie', gender: 'f'},
+        {name: 'Frankie', gender: 'm'},
+        {name: 'Florence', gender: 'f'},
+        {name: 'Gary', gender: 'm'},
+        {name: 'Gloria', gender: 'f'},
+        {name: 'Henry', gender: 'm'},
+        {name: 'Henrietta', gender: 'f'},
+        {name: 'Ian', gender: 'm'},
+        {name: 'Isabelle', gender: 'f'},
+        {name: 'Jamie', gender: 'm'},
+        {name: 'Jasmine', gender: 'f'},
+        {name: 'Karl', gender: 'm'},
+        {name: 'Karen', gender: 'f'},
+        {name: 'Luke', gender: 'm'},
+        {name: 'Lisa', gender: 'f'},
+        {name: 'Marcus', gender: 'm'},
+        {name: 'Maria', gender: 'f'},
+        {name: 'Nigel', gender: 'm'},
+        {name: 'Norma', gender: 'f'},
+        {name: 'Oliver', gender: 'm'},
+        {name: 'Olivia', gender: 'f'},
+        {name: 'Peter', gender: 'm'},
+        {name: 'Pauline', gender: 'f'},
+        {name: 'Quentin', gender: 'm'},
+        {name: 'Queenie', gender: 'f'},
+        {name: 'Roger', gender: 'm'},
+        {name: 'Rebecca', gender: 'f'},
+        {name: 'Rowan', gender: 'm'},
+        {name: 'Stephen', gender: 'm'},
+        {name: 'Samantha', gender: 'f'},
+        {name: 'Thomas', gender: 'm'},
+        {name: 'Toni', gender: 'f'},
+        {name: 'Uriah', gender: 'm'},
+        {name: 'Ursula', gender: 'f'},
+        {name: 'Victor', gender: 'm'},
+        {name: 'Victoria', gender: 'f'},
+        {name: 'William', gender: 'm'},
+        {name: 'Wendy', gender: 'f'},
+        {name: 'Xander', gender: 'm'},
+        {name: 'Xena', gender: 'f'},
+        {name: 'Yannick', gender: 'm'},
+        {name: 'Yvonne', gender: 'f'},
+        {name: 'Zachary', gender: 'm'},
+        {name: 'Zoe', gender: 'f'},
     ];
-    let firstNameRand = firstNamesArray[Math.floor(Math.random() * firstNamesArray.length)];
-    document.getElementById('FirstName').value = firstNameRand;
+    let firstNameRand = firstNamesGendersArray[Math.floor(Math.random() * firstNamesGendersArray.length)];
+    document.getElementById('FirstName').value = firstNameRand.name;
+    document.getElementById('Gender').value = firstNameRand.gender;
 
     let lastNamesArray = ["Hill", "Smith", "Jones", "Ballantyne", "Taylor", "Rogers", "Rowley", "Chetwynd", "Steer", "Walker", "Embury", "Dorian", "Tate",
         "Richter", "Arnalds", "Garland", "Owen", "Croft", "Auditore", "Bell", "Bonair", "Messenger", "Nobakov", "Orwell", "LaVey", "Manson",
