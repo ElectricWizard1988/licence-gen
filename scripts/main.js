@@ -1,10 +1,10 @@
 function getUserInput() {
-    let firstName = document.getElementById('FirstName').value;
-    let lastName = document.getElementById('LastName').value;
+    let firstName = document.getElementById('FirstName').value.toUpperCase();
+    let lastName = document.getElementById('LastName').value.toUpperCase();
     let dateOfBirth = document.getElementById('DatePicker').value;
     let gender = document.getElementById('Gender').value;
 
-    let first = lastName.slice(0, 5);
+    let first = lastName.slice(0, 3) == 'MAC' ? 'MC'.concat(lastName.slice(3,6)) : lastName.slice(0, 5);
     if (first.length < 5) {
         first = first.padEnd(5, '9');
     }
