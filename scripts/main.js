@@ -28,7 +28,7 @@ function getUserInput() {
     //12–13: The first two initials of the first names, padded with a 9 if no middle name
     let givenNames = firstName.split(" ");
     let firstGivenNameInitial = givenNames[0].substr(0, 1);
-    let secondGivenNameInitial = givenNames.length >= 2 ? : givenNames[1].substr(0, 1) '9';
+    let secondGivenNameInitial = givenNames.length >= 2 ? givenNames[1].substr(0, 1) : '9';
     
     //14: Arbitrary digit – usually 9, but decremented to differentiate drivers with the first 13 characters in common
     let arbitrary = '9';
