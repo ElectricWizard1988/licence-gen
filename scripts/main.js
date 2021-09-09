@@ -4,24 +4,44 @@ function getUserInput() {
     let dateOfBirth = document.getElementById('DatePicker').value;
     let gender = document.getElementById('Gender').value;
 
-    let first = lastName.slice(0, 3) == 'MAC' ? 'MC'.concat(lastName.slice(3,6)) : lastName.slice(0, 5);
-    if (first.length < 5) {
-        first = first.padEnd(5, '9');
+    //1–5: The first five characters of the surname (padded with 9s if fewer than 5 characters). For surnames beginning with "MAC", they are treated as "MC" for all.
+    let surnameFirstFive = lastName.slice(0, 3) == 'MAC' ? 'MC'.concat(lastName.slice(3,6)) : lastName.slice(0, 5);
+    if (surnameFirstFive.length < 5) {
+        surnameFirstFive = surnameFirstFive.padEnd(5, '9');
     }
-    let second = dateOfBirth.substr(2, 1);
-    let third = dateOfBirth.substr(5, 2);
+    
+    //6: The decade digit from the year of birth (e.g. for 1987 it would be 8)
+    let birthDecade = dateOfBirth.substr(2, 1);
+    
+    //7–8: The month of birth in two digit format (7th character is incremented by 5 if the driver is female i.e. 51–62 instead of 01–12)
+    let birthMonth = dateOfBirth.substr(5, 2);
     if (gender === 'f') {
-        third = parseInt(third, 10) + 50;
+        birthMonth = parseInt(birthMonth, 10) + 50;
     }
-    let fourth = dateOfBirth.substr(8, 2);
-    let fith = dateOfBirth.substr(3, 1);
-    let sixth = firstName.substr(0, 2);
-    let seventh = '9';
-    let eighthChar1 = lastName.substr(1, 1);
-    let eighthChar2 = lastName.substr(0, 1);
+    
+    //9–10: The date within the month of birth in two digit format (i.e. 01-31)
+    let birthDay = dateOfBirth.substr(8, 2);
+    
+    //11: The year digit from the year of birth (e.g. for 1987 it would be 7)
+    let birthYearDigit = dateOfBirth.substr(3, 1);
+    
+    //12–13: The first two initials of the first names, padded with a 9 if no middle name
+    let givenNames = firstName.split(" ");
+    let firstGivenNameInitial = givenNames[0].substr(0, 1);
+    let secondGivenNameInitial = givenNames.length >= 2 ? : givenNames[1].substr(0, 1) '9';
+    
+    //14: Arbitrary digit – usually 9, but decremented to differentiate drivers with the first 13 characters in common
+    let arbitrary = '9';
+    
+    //15–16: Two computer check digits.
+    let checkDigits = 'XX'; //TODO generate check digits
 
-    let generatedLicenceNumber = (first.toUpperCase() + second + third + fourth + fith + sixth.toUpperCase() +
-        seventh + eighthChar1.toUpperCase() + eighthChar2.toUpperCase());
+    //17–18: Two digits representing the licence issue, which increases by 1 for each licence issued.
+    let issue = '01';
+    
+    let generatedLicenceNumber = (surnameFirstFive.toUpperCase() + birthDecade + birthMonth + birthDay + birthYearDigit + 
+                                  firstGivenNameInitial.toUpperCase() + secondGivenNameInitial .toUpperCase() +
+                                  arbitrary + checkDigits + ' ' + issue);
 
     if (firstName.length === 0 || lastName.length === 0 || dateOfBirth === "" || gender === "") {
         alert("Please make sure that you have entered a First Name, Last Name and DOB.");
