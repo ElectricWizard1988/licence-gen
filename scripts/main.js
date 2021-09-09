@@ -40,7 +40,7 @@ function getUserInput() {
     let issue = '01';
     
     let generatedLicenceNumber = (surnameFirstFive.toUpperCase() + birthDecade + birthMonth + birthDay + birthYearDigit + 
-                                  firstGivenNameInitial.toUpperCase() + secondGivenNameInitial .toUpperCase() +
+                                  firstGivenNameInitial.toUpperCase() + secondGivenNameInitial.toUpperCase() +
                                   arbitrary + checkDigits + ' ' + issue);
 
     if (firstName.length === 0 || lastName.length === 0 || dateOfBirth === "" || gender === "") {
